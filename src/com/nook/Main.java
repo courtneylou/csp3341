@@ -1,11 +1,19 @@
 package com.nook;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+import com.nook.util.DatabaseUtil;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
-        }
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        DatabaseUtil.initializeDatabase();
+        stage.setTitle("Nook");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }
