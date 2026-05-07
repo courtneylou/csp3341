@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.AddBookController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="detail-container">
+
+            <Label text="Add a Book" styleClass="page-title"/>
+
+            <VBox spacing="10" styleClass="auth-form">
+
+                <!-- ISBN + Lookup -->
+                <Label text="ISBN *"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="isbnField"
+                               promptText="Enter ISBN number"
+                               HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="lookupButton"
+                            text="Lookup ISBN"
+                            onAction="#handleIsbnLookup"
+                            styleClass="secondary-button"/>
+                </HBox>
+                <Label fx:id="lookupStatusLabel" styleClass="status-label"/>
+
+                <!-- Cover Preview -->
+                <ImageView fx:id="coverPreview"
+                           fitWidth="120"
+                           fitHeight="160"
+                           preserveRatio="true"
+                           visible="false"/>
+
+                <Label text="Title *"/>
+                <TextField fx:id="titleField" promptText="Enter book title"/>
+
+                <Label text="Authors * (separate multiple with a comma)"/>
+                <TextField fx:id="authorsField" promptText="e.g. Author One, Author Two"/>
+
+                <Label text="Genre"/>
+                <TextField fx:id="genreField" promptText="Enter genre"/>
+
+                <Label text="Published Date"/>
+                <TextField fx:id="publishedDateField" promptText="e.g. 2024-01-15"/>
+
+                <Label text="Cover Image URL"/>
+                <TextField fx:id="coverUrlField" promptText="Auto-filled by lookup or paste manually"/>
+
+                <Label text="Description"/>
+                <TextArea fx:id="descriptionArea"
+                          promptText="Enter a description of the book..."
+                          prefRowCount="5"
+                          wrapText="true"/>
+
+                <Label fx:id="errorLabel" styleClass="error-label"/>
+
+                <Button text="Add Book"
+                        onAction="#handleAddBook"
+                        styleClass="primary-button"
+                        maxWidth="Infinity"/>
+
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

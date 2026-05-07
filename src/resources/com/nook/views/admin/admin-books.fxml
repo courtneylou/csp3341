@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.admin.AdminBookController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook Admin" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+    </HBox>
+
+    <HBox spacing="0" VBox.vgrow="ALWAYS">
+
+        <!-- Books Table -->
+        <VBox spacing="15" styleClass="detail-container" HBox.hgrow="ALWAYS">
+            <Label text="Manage Books" styleClass="page-title"/>
+            <Label fx:id="statusLabel" styleClass="status-label"/>
+
+            <HBox spacing="10">
+                <Button text="Delete Book" onAction="#handleDeleteBook" styleClass="danger-button"/>
+            </HBox>
+
+            <TableView fx:id="booksTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="titleColumn" text="Title" prefWidth="200"/>
+                    <TableColumn fx:id="authorColumn" text="Author" prefWidth="150"/>
+                    <TableColumn fx:id="isbnColumn" text="ISBN" prefWidth="130"/>
+                    <TableColumn fx:id="genreColumn" text="Genre" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Edit Panel -->
+        <VBox spacing="10" styleClass="edit-panel">
+            <Label text="Edit Book" styleClass="section-title"/>
+
+            <Label text="Title"/>
+            <TextField fx:id="editTitleField" promptText="Title"/>
+
+            <Label text="Author"/>
+            <TextField fx:id="editAuthorField" promptText="Author"/>
+
+            <Label text="Genre"/>
+            <TextField fx:id="editGenreField" promptText="Genre"/>
+
+            <Label text="Published Date"/>
+            <TextField fx:id="editPublishedDateField" promptText="Published Date"/>
+
+            <Label text="Cover URL"/>
+            <TextField fx:id="editCoverUrlField" promptText="Cover URL"/>
+
+            <Label text="Description"/>
+            <TextArea fx:id="editDescriptionArea"
+                      promptText="Description..."
+                      prefRowCount="4"
+                      wrapText="true"/>
+
+            <Button text="Save Changes"
+                    onAction="#handleSaveEdit"
+                    styleClass="primary-button"
+                    maxWidth="Infinity"/>
+        </VBox>
+
+    </HBox>
+
+</VBox>

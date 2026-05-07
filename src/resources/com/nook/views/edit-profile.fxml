@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.EditProfileController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="detail-container">
+
+            <Label text="Edit Profile" styleClass="page-title"/>
+
+            <VBox spacing="10" styleClass="section-box">
+
+                <Label text="Username (cannot be changed)"/>
+                <TextField fx:id="usernameField"/>
+
+                <Label text="Email"/>
+                <TextField fx:id="emailField" promptText="Enter your email"/>
+
+                <Label text="Bio"/>
+                <TextArea fx:id="bioArea"
+                          promptText="Write a short bio..."
+                          prefRowCount="3"
+                          wrapText="true"/>
+
+                <Label text="Avatar Image URL"/>
+                <TextField fx:id="avatarUrlField" promptText="Paste a URL to your avatar image"/>
+
+                <Separator/>
+
+                <Label text="Change Password" styleClass="section-title"/>
+
+                <Label text="New Password"/>
+                <PasswordField fx:id="newPasswordField" promptText="Leave blank to keep current password"/>
+
+                <Label text="Confirm New Password"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm new password"/>
+
+                <Label fx:id="errorLabel" styleClass="error-label"/>
+                <Label fx:id="successLabel" styleClass="success-label"/>
+
+                <Button text="Save Changes"
+                        onAction="#handleSave"
+                        styleClass="primary-button"
+                        maxWidth="Infinity"/>
+
+                <Separator/>
+
+                <Button text="Delete My Account"
+                        onAction="#handleDeleteAccount"
+                        styleClass="danger-button"
+                        maxWidth="Infinity"/>
+
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

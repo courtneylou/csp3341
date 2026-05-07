@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.BookDetailController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="detail-container">
+
+            <!-- Book Info -->
+            <HBox spacing="30" styleClass="book-detail-header">
+                <ImageView fx:id="coverImage"
+                           fitWidth="180"
+                           fitHeight="260"
+                           preserveRatio="true"
+                           styleClass="book-cover"/>
+
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="titleLabel" styleClass="book-detail-title" wrapText="true" HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="wishlistButton"
+                                text="♡"
+                                onAction="#handleWishlist"
+                                styleClass="heart-button"/>
+                    </HBox>
+                    <Label fx:id="authorLabel" styleClass="book-detail-author"/>
+                    <Label fx:id="genreLabel" styleClass="book-detail-genre"/>
+                    <Label fx:id="isbnLabel" styleClass="book-detail-meta"/>
+                    <Label fx:id="publishedLabel" styleClass="book-detail-meta"/>
+                    <Button text="📚 Add to List"
+                            onAction="#handleAddToList"
+                            styleClass="secondary-button"/>
+                </VBox>
+
+            </HBox>
+
+            <!-- Description -->
+            <VBox spacing="8" styleClass="section-box">
+                <Label text="Description" styleClass="section-title"/>
+                <Text fx:id="descriptionText" wrappingWidth="700" styleClass="book-description"/>
+            </VBox>
+
+            <!-- Write a Review -->
+            <VBox fx:id="addReviewBox" spacing="12" styleClass="section-box">
+
+                <!-- Header row with spoiler checkbox -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Write a Review" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <CheckBox fx:id="spoilerCheckBox" text="Review contains spoilers" style="-fx-font-size: 13px; -fx-text-fill: #555555;"/>
+                </HBox>
+
+                <!-- Star Rating -->
+                <HBox fx:id="starRatingBox" spacing="5" alignment="CENTER_LEFT">
+                    <Button fx:id="star1" text="☆" onAction="#handleStarClick" styleClass="star-button"/>
+                    <Button fx:id="star2" text="☆" onAction="#handleStarClick" styleClass="star-button"/>
+                    <Button fx:id="star3" text="☆" onAction="#handleStarClick" styleClass="star-button"/>
+                    <Button fx:id="star4" text="☆" onAction="#handleStarClick" styleClass="star-button"/>
+                    <Button fx:id="star5" text="☆" onAction="#handleStarClick" styleClass="star-button"/>
+                </HBox>
+
+                <TextArea fx:id="reviewTextArea"
+                          promptText="Write your review here..."
+                          prefRowCount="4"
+                          wrapText="true"/>
+
+                <Label fx:id="errorLabel" styleClass="error-label"/>
+
+                <Button text="Submit Review"
+                        onAction="#handleSubmitReview"
+                        styleClass="primary-button"/>
+            </VBox>
+
+            <!-- Reviews -->
+            <VBox spacing="10" styleClass="section-box">
+                <Label text="Reviews" styleClass="section-title"/>
+                <VBox fx:id="reviewsBox" spacing="10"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

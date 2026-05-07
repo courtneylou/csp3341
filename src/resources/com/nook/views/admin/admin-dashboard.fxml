@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.admin.AdminDashboardController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook Admin" styleClass="nav-logo"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Button text="View Site" onAction="#handleGoHome" styleClass="secondary-button"/>
+        <Button text="Log Out" onAction="#handleLogout" styleClass="logout-button"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox spacing="30" styleClass="detail-container">
+
+            <!-- Welcome -->
+            <Label fx:id="adminNameLabel" styleClass="page-title"/>
+
+            <!-- Stats -->
+            <HBox spacing="20">
+                <VBox styleClass="stat-card" spacing="5">
+                    <Label fx:id="totalUsersLabel" styleClass="stat-number"/>
+                </VBox>
+                <VBox styleClass="stat-card" spacing="5">
+                    <Label fx:id="totalBooksLabel" styleClass="stat-number"/>
+                </VBox>
+            </HBox>
+
+            <!-- Quick Links -->
+            <VBox spacing="15" styleClass="section-box">
+                <Label text="Manage" styleClass="section-title"/>
+                <HBox spacing="15">
+                    <Button text="👤 Manage Users"
+                            onAction="#handleManageUsers"
+                            styleClass="primary-button"
+                            prefWidth="200"/>
+                    <Button text="📚 Manage Books"
+                            onAction="#handleManageBooks"
+                            styleClass="primary-button"
+                            prefWidth="200"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

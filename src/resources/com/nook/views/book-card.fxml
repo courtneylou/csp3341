@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.BookCardController"
+      styleClass="book-card"
+      spacing="8"
+      onMouseClicked="#handleViewBook">
+
+    <ImageView fx:id="coverImage"
+               fitWidth="150"
+               fitHeight="200"
+               preserveRatio="true"
+               styleClass="book-cover"/>
+
+    <Label fx:id="titleLabel"
+           styleClass="book-card-title"
+           wrapText="true"
+           maxWidth="150"/>
+
+    <Label fx:id="authorLabel"
+           styleClass="book-card-author"
+           wrapText="true"
+           maxWidth="150"/>
+
+    <Button fx:id="wishlistButton"
+            text="♡"
+            onAction="#handleWishlist"
+            styleClass="wishlist-button"/>
+
+</VBox>

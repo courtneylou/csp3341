@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.admin.AdminUserController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook Admin" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+    </HBox>
+
+    <VBox spacing="20" styleClass="detail-container" VBox.vgrow="ALWAYS">
+
+        <Label text="Manage Users" styleClass="page-title"/>
+        <Label fx:id="statusLabel" styleClass="status-label"/>
+
+        <!-- Action Buttons -->
+        <HBox spacing="10">
+            <Button text="Ban / Unban" onAction="#handleBanUser" styleClass="warning-button"/>
+            <Button text="Promote / Demote" onAction="#handlePromoteUser" styleClass="secondary-button"/>
+            <Button text="Delete User" onAction="#handleDeleteUser" styleClass="danger-button"/>
+        </HBox>
+
+        <!-- Users Table -->
+        <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="usernameColumn" text="Username" prefWidth="200"/>
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="250"/>
+                <TableColumn fx:id="roleColumn" text="Role" prefWidth="100"/>
+                <TableColumn fx:id="bannedColumn" text="Status" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+
+</VBox>

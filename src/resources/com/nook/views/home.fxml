@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.HomeController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook" styleClass="nav-logo"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <HBox spacing="10" alignment="CENTER">
+            <TextField fx:id="searchField"
+                       promptText="Search by title, author or ISBN..."
+                       prefWidth="300"
+                       styleClass="search-field"
+                       onAction="#handleSearch"/>
+            <Button text="Search" onAction="#handleSearch" styleClass="search-button"/>
+        </HBox>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="+ Add Book" onAction="#handleAddBook" styleClass="primary-button"/>
+            <Button text="📚" onAction="#handleBookLists" styleClass="icon-button" prefWidth="40"/>
+            <Button text="♡" onAction="#handleWishlistPage" styleClass="icon-button" prefWidth="40"/>
+            <Button text="Profile" onAction="#handleProfile" styleClass="secondary-button"/>
+            <Button fx:id="adminButton" text="Admin Panel" onAction="#handleAdminDashboard" styleClass="warning-button"/>
+            <Button text="Log Out" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </HBox>
+
+    <!-- Welcome Label -->
+    <VBox styleClass="home-header" spacing="5">
+        <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+        <Label text="Recently Added Books" styleClass="section-title"/>
+    </VBox>
+
+    <!-- Books Grid -->
+    <ScrollPane fitToWidth="true" styleClass="books-scroll" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="booksGrid"
+                  styleClass="books-grid"
+                  hgap="20"
+                  vgap="20"/>
+    </ScrollPane>
+
+</VBox>

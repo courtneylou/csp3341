@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.BookListsController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="detail-container">
+
+            <!-- Header with + button -->
+            <HBox alignment="CENTER_LEFT">
+                <Label text="My Book Lists" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="+ New List"
+                        onAction="#handleToggleCreate"
+                        styleClass="primary-button"/>
+            </HBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label"/>
+
+            <!-- Book Lists -->
+            <VBox fx:id="bookListsContainer" spacing="15"/>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

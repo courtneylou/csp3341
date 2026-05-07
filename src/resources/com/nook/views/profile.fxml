@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.ProfileController"
+      spacing="0"
+      styleClass="main-container">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Nook" styleClass="nav-logo"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="link-button"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Button text="Edit Profile" onAction="#handleEditProfile" styleClass="secondary-button"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="detail-container">
+
+            <!-- Profile Header -->
+            <VBox styleClass="profile-header" spacing="10">
+                <Label fx:id="usernameLabel" styleClass="profile-username"/>
+                <Label fx:id="bioLabel" styleClass="profile-bio" wrapText="true"/>
+            </VBox>
+
+            <!-- Reviews -->
+            <VBox spacing="10" styleClass="section-box">
+                <Label text="Reviews" styleClass="section-title"/>
+                <VBox fx:id="reviewsBox" spacing="10"/>
+            </VBox>
+
+            <!-- Wishlist -->
+            <VBox spacing="10" styleClass="section-box">
+                <Label text="Wishlist" styleClass="section-title"/>
+                <VBox fx:id="wishlistBox" spacing="5"/>
+            </VBox>
+
+            <!-- Book Lists -->
+            <VBox spacing="10" styleClass="section-box">
+                <Label text="Book Lists" styleClass="section-title"/>
+                <VBox fx:id="bookListsBox" spacing="5"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>
