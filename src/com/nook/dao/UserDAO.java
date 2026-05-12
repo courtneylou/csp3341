@@ -7,7 +7,25 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class UserDAO {
+
+    public boolean adminExists() throws SQLException {
+
+        String sql = "SELECT COUNT(*) FROM users WHERE role = 'admin'";
+
+        try (
+                Connection conn = DatabaseUtil.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()
+        ) {
+
+            return rs.getInt(1) > 0;
+        }
+    }
 
     public void createUser(User user) throws SQLException {
         String sql = "INSERT INTO users (username, email, password_hash, role, is_banned, bio, avatar_url) VALUES (?, ?, ?, ?, ?, ?, ?)";

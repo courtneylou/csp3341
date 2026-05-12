@@ -61,11 +61,3 @@ add, and review books, and manage personal reading lists.
 5. Run `Main.java`
 
 The database will be created automatically on first run.
-
-## Default Admin Account
-
-On first run a default admin account is created:
-- **Username:** admin
-- **Password:** admin123
-
-> ⚠️ Change the admin password after first login.

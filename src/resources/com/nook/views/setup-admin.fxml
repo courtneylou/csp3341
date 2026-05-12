@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nook.controller.SetupAdminController"
+      alignment="CENTER"
+      spacing="15"
+      styleClass="auth-container">
+
+    <Text text="Nook" styleClass="app-title"/>
+    <Text text="Create the first admin account to get started" styleClass="auth-subtitle"/>
+
+    <VBox spacing="10" styleClass="auth-form">
+
+        <Label text="Username"/>
+        <TextField fx:id="usernameField" promptText="Enter a username"/>
+
+        <Label text="Email"/>
+        <TextField fx:id="emailField" promptText="Enter an email"/>
+
+        <Label text="Password"/>
+        <PasswordField fx:id="passwordField" promptText="Enter a password"/>
+
+        <Label fx:id="errorLabel" styleClass="error-label"/>
+
+        <Button text="Create Admin" onAction="#handleCreateAdmin" styleClass="primary-button" maxWidth="Infinity"/>
+
+    </VBox>
+
+</VBox>

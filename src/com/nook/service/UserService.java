@@ -23,6 +23,33 @@ public class UserService {
         return userDAO.getAllUsers();
     }
 
+    public boolean adminExists() throws SQLException {
+        return userDAO.adminExists();
+    }
+
+    public void createInitialAdmin(
+            String username,
+            String email,
+            String password
+    ) throws SQLException {
+
+        if (adminExists()) {
+            throw new IllegalStateException("Admin already exists.");
+        }
+
+        User admin = new User();
+
+        admin.setUsername(username);
+        admin.setEmail(email);
+        admin.setPasswordHash(
+                PasswordUtil.hashPassword(password)
+        );
+        admin.setRole("admin");
+        admin.setBanned(false);
+
+        userDAO.createUser(admin);
+    }
+
     public void updateEmail(User user, String newEmail) throws SQLException {
         if (userDAO.getUserByEmail(newEmail) != null) {
             throw new IllegalArgumentException("Email is already in use.");

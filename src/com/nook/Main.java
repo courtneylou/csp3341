@@ -2,6 +2,7 @@ package com.nook;
 
 import com.nook.util.DatabaseUtil;
 import com.nook.util.NavigationUtil;
+import com.nook.service.UserService;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,7 +16,21 @@ public class Main extends Application {
         stage.setWidth(1100);
         stage.setHeight(750);
         stage.setResizable(true);
-        NavigationUtil.navigateTo("/com/nook/views/login.fxml");
+
+        UserService userService = new UserService();
+
+        try {
+
+            if (!userService.adminExists()) {
+                NavigationUtil.navigateTo("/com/nook/views/setup-admin.fxml");
+            } else {
+                NavigationUtil.navigateTo("/com/nook/views/login.fxml");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         stage.show();
     }
 
