@@ -27,7 +27,7 @@
 
         <Label fx:id="errorLabel" styleClass="error-label"/>
 
-        <Button text="Create Admin" onAction="#handleCreateAdmin" styleClass="primary-button" maxWidth="Infinity"/>
+        <Button text="Create Admin" onAction="#handleCreateAdmin" styleClass="primary-button" maxWidth="Infinity" defaultButton="true"/>
 
     </VBox>
 
